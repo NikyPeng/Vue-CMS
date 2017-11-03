@@ -32,7 +32,6 @@ export default {
   },
   beforeMount () {
     var userInfos = JSON.parse(localStorage.getItem('userInfo'))
-    console.log('123', userInfos)
     if (userInfos && userInfos.name) {
       this.userName = userInfos.name
     }
@@ -43,10 +42,14 @@ export default {
   },
   methods: {
     outLogin () {
-      var vm = this
+      let vm = this
       localStorage.clear()
-      vm.isLogin = false
+      vm.$router.replace({name: 'Login', path: '/login'})
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log('pcsaajkkka')
+    next()
   }
 }
 </script>

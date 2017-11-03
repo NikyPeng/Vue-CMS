@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>欢迎进入龙城系统管理后台</h1>
+    <h1>欢迎{{ $route.params.userName }}进入龙城系统管理后台</h1>
   </div>
 </template>
 <script>

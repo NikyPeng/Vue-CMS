@@ -28,16 +28,16 @@
     },
     methods: {
       toLogin: function () {
-        var userInfos = {name: 'pengcheng', psw: '1234567', token: 'zxcvbnm@asdfghjkl'}
-        var vm = this
+        let userInfos = {name: 'pengcheng', psw: '1234567', token: 'zxcvbnm@asdfghjkl'}
+        let vm = this
         if ((vm.username && vm.username === userInfos.name) && (vm.psw && vm.psw === userInfos.psw)) {
           localStorage.setItem('userInfo', JSON.stringify(userInfos))
-          vm.isLogin = true
           vm.err = null
+          vm.$router.push({name: 'Home', path: '/'})
         } else {
           vm.err = '用户名或密码错误'
         }
-      },
+      }
     }
   }
 </script>

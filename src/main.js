@@ -8,7 +8,10 @@ import Icon from 'vue-awesome'
 Vue.config.productionTip = false
 Vue.component('icon', Icon)
 /* eslint-disable no-new */
-
+/* router.beforeEach((to, from, next) => {
+  // console.log('to :', to, 'from :', from)
+  next()
+}) */
 new Vue({
   el: '#app',
   router,

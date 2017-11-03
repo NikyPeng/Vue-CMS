@@ -5,30 +5,31 @@
       <transition name="bounce-1">
         <ul class="lists" v-show="subTitleKey === 0">
           <li class="list">
-            <router-link to="/">欢迎进入</router-link>
+            <icon name="home" scale=1.3 label="home" ></icon>
+            <router-link to="/welcome" tag="li">欢迎进入</router-link>
           </li>
         </ul>
       </transition>
     </div>
     <div>
-      <h1 class="mainTitle" @click="showSubTitle(1)">标题一</h1>
+      <h1 class="mainTitle" @click="showSubTitle(1)">用户管理</h1>
       <transition name="bounce-2">
         <ul class="lists" v-show="subTitleKey === 1">
           <li class="list">
-            <router-link to="/about">关于我们</router-link>
+            <router-link to="/user/list">用户列表</router-link>
           </li>
           <li class="list">
-            <router-link to="/contact">联系我们</router-link>
+            <router-link to="/user/edit">{{isEdit ? '编辑用户' : '添加用户'}}</router-link>
           </li>
         </ul>
       </transition>
     </div>
     <div>
-      <h1 class="mainTitle" @click="showSubTitle(2)">标题二</h1>
+      <h1 class="mainTitle" @click="showSubTitle(2)">信息统计</h1>
       <transition name="bounce-2">
         <ul class="lists" v-show="subTitleKey === 2">
           <li class="list">
-            <router-link to="/about">关于我们</router-link>
+            <router-link to="/statistics/father">page one</router-link>
           </li>
           <li class="list">
             <router-link to="/contact">联系我们</router-link>
@@ -80,6 +81,14 @@
       return {
         nav: [{title: '标题一', url: '/about', children: [{title: '副标题一', url: '／contact'}, {title: '副标题一', url: '／contact'}]}, {title: '标题二', url: '/contact', children: [{title: '副标题一', url: '／about'}, {title: '副标题一', url: '／about'}]}],
         subTitleKey: 0
+      }
+    },
+    beforeMount () {
+      console.log('123', this.$route)
+    },
+    computed: {
+      isEdit () {
+        return this.$route.name === 'Useredit' && this.$route.params && (this.$route.params.id + 1)
       }
     },
     methods: {
@@ -147,6 +156,9 @@
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       padding-left: 55px;
+    }
+    .router-link-active{
+      color: rgba(255,0,0,.5);
     }
     .bounce-1-enter-active {
       animation: bounce-in-1 500ms linear;
