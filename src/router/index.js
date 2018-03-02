@@ -8,7 +8,7 @@ import Contact from '@/components/contact'
 import User from '@/components/usermanagement/user'
 import Userlist from '@/components/usermanagement/userlist'
 import Useredit from '@/components/usermanagement/useredit'
-import Statistics from '@/components/statistics'
+import Statistics from '@/components/statistics/statistics'
 import Father from '@/components/statistics/page/father'
 
 Vue.use(Router)
@@ -66,7 +66,7 @@ export default new Router({
         }
       ],
       beforeEnter: (to, from, next) => {
-        let userInfos = JSON.parse(localStorage.getItem('userInfo'))
+        let userInfos = this.a.app.$storage.get('userInfo')
         if (!userInfos) {
           next({name: 'Login', path: '/login'})
         } else {
@@ -79,7 +79,7 @@ export default new Router({
       name: 'Login',
       component: Login,
       beforeEnter: (to, from, next) => {
-        let userInfos = JSON.parse(localStorage.getItem('userInfo'))
+        let userInfos = this.a.app.$storage.get('userInfo')
         if (!userInfos) {
           next()
         } else {

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1 v-ac="0">Test AC</h1>
     <div class="content">
       <div>
         <son-one />
@@ -21,6 +22,8 @@
     mounted () {
       let blob = new Blob()
       console.log(blob)
+      let a = this.$ac.add(2, 3)
+      console.log('========', a)
     },
     methods: {
 
