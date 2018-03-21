@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/common/login'
 import Welcome from '@/components/welcome'
 import Home from '@/components/home'
-import About from '@/components/about'
-import Contact from '@/components/contact'
-import User from '@/components/usermanagement/user'
-import Userlist from '@/components/usermanagement/userlist'
-import Useredit from '@/components/usermanagement/useredit'
-import Statistics from '@/components/statistics/statistics'
-import Father from '@/components/statistics/page/father'
+import Login from '@/components/common/login'
+const About = () => import(/*  webpackChunkName: "about" */'./../components/about')
+const Contact = () => import(/*  webpackChunkName: "contact" */'./../components/contact')
+const User = () => import(/*  webpackChunkName: "user" */'./../components/usermanagement/user')
+const Userlist = () => import(/*  webpackChunkName: "userlist" */'./../components/usermanagement/userlist')
+const Useredit = () => import(/*  webpackChunkName: "useredit" */'./../components/usermanagement/useredit')
+const Statistics = () => import(/*  webpackChunkName: "statistics" */'./../components/statistics/statistics')
+const Father = () => import(/*  webpackChunkName: "father" */'./../components/statistics/page/father')
 
 Vue.use(Router)
 
